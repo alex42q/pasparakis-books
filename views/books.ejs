@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <form action="/books/delete" method="POST">
+  <h1>
+    <%= title %>
+  </h1>
+  <div>
+    <% for(var i = 0; i < books.length; i++) { %>
+    <span><%= books[i].id %></span>&nbsp;
+    <span>
+      <%= books[i].title %>
+    </span>&nbsp;
+    <span>
+      <%= books[i].author %>
+      <% console.log(books[i].author); %>
+    </span>&nbsp;
+    <span>
+      <%= books[i].created_at %>
+    </span>&nbsp;
+    <span>
+      <%= books[i].updated_at %>
+      <button value="<%= books[i].id %>" name="id" type="submit" class="deleteButton" id="deleteButton">Delete</button>
+    </form>
+    <form action="/books/update" method="POST">
+      <button value="<%= books[i].id %>" name="id2" class="updateButton" id="updateButton">Update</button>
+    </form>
+    </span><br />
+    <% } %>
+  </div>
+  <div id="error"><%= message %></div>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update</title>
+</head>
+<body>
+    <form action="/books/updateUser" method="POST">
+        <h1>Previous Inputs</h1>
+    <%= title %>
+        <% for(var i = 0; i < books.length; i++) { %>
+            <span><%= books[i].id %></span>&nbsp;
+            <span>
+              <%= books[i].title %>
+            </span>&nbsp;
+            <span>
+              <%= books[i].author %>
+              <% console.log(books[i].author); %>
+            </span>&nbsp;
+            <span>
+              <%= books[i].created_at %>
+            </span>&nbsp;
+            <span>
+              <%= books[i].updated_at %>
+            </span><br />
+            <input name="title" type="text">
+<input name="author" type="text">
+<button value="<%= books[i].id %>" name="update" type="submit">Update</button>
+            <% } %>
+
+
+</form>
+</body>
+</html>
